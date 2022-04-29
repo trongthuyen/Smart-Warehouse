@@ -159,7 +159,7 @@ function Sidebar({ onSidebarHide, showSidebar }) {
         <div className="w-full p-3 h-24 sm:h-20 xl:h-24 hidden sm:block flex-shrink-0 sidebar-separator-bottom">
           <div className='Login-button'>
               <button type="button">
-                  <Link to="./"> LOG OUT </Link>
+                  <Link to="../"> LOG OUT </Link>
               </button>
           </div>
         </div>

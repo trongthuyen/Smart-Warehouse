@@ -8,7 +8,7 @@ function IconButton({
     return (
       <button onClick={onClick} type="button" className={className}>
         <img
-          src={`https://assets.codepen.io/3685267/${icon}.svg`}
+          src={`${icon}`}
           alt=""
           className="w-full h-full"
         />

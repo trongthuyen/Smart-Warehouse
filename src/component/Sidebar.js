@@ -38,13 +38,13 @@ function Sidebar({ onSidebarHide, showSidebar }) {
       >
         <div className="flex-shrink-0 overflow-hidden p-2">
           <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 sidebar-separator-top">
-            <IconButton icon="res-react-dash-logo" className="w-10 h-10" />
+            <IconButton icon="https://svgshare.com/i/gj6.svg" className="w-10 h-10" />
             <div className="block sm:hidden xl:block ml-2 font-bold text-xl text-white">
               React
             </div>
             <div className="flex-grow sm:hidden xl:block" />
             <IconButton
-              icon="res-react-dash-sidebar-close"
+              icon="https://assets.codepen.io/3685267/res-react-dash-sidebar-close.svg"
               className="block sm:hidden"
               onClick={onSidebarHide}
             />
@@ -158,7 +158,7 @@ function Sidebar({ onSidebarHide, showSidebar }) {
   
         <div className="flex-shrink-0 overflow-hidden p-2">
           <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 sidebar-separator-bottom">
-            <Image path="mock_faces_8" className="w-10 h-10" />
+            <Image path="https://assets.codepen.io/3685267/mock_faces_8.jpg" className="w-10 h-10" />
             <div className="block sm:hidden xl:block ml-2 font-bold ">
               Jerry Wilson
             </div>

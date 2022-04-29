@@ -13,35 +13,35 @@ const tau = 2 * pi;
 const lightOffset = 10.00;
 const humidityOffset = 84.00;
 
-const employeeData = [
+const equipmentData = [
   {
     id: 1,
     name: 'Light',
     position: "Cold Storage LED Light 20W",
-    transactions: 3490,
+    ages: 5,
     rise: true,
-    tasksCompleted: 3,
-    imgId: 0,
+    mode: true,
+    imgId: "https://svgshare.com/i/gj3.svg",
   },
 
   {
     id: 2,
     name: 'Cooler',
     position: "Italy LUVE Unit Cooler",
-    transactions: 590,
+    ages: 10,
     rise: false,
-    tasksCompleted: 5,
-    imgId: 2,
+    mode: false,
+    imgId: "https://svgshare.com/i/ggx.svg",
   },
 
   {
     id: 3,
     name: 'Door',
     position: "Insulated Panel Door",
-    transactions: 2600,
+    ages: 7,
     rise: true,
-    tasksCompleted: 1,
-    imgId: 3,
+    mode: true,
+    imgId: "https://svgshare.com/i/gis.svg",
   },
 ];
 
@@ -102,7 +102,7 @@ function Content({ onSidebarHide }) {
                 </div>
               </div>
               <IconButton
-                icon="res-react-dash-sidebar-open"
+                icon="https://assets.codepen.io/3685267/res-react-dash-sidebar-open.svg"
                 className="block sm:hidden"
                 onClick={onSidebarHide}
               />
@@ -123,14 +123,14 @@ function Content({ onSidebarHide }) {
               </form>
             </div>
           </div>
-          {employeeData.map(
+          {equipmentData.map(
             ({
               id,
               name,
               position,
-              transactions,
+              ages,
               rise,
-              tasksCompleted,
+              mode,
               imgId,
             }) => (
               <NameCard
@@ -138,9 +138,9 @@ function Content({ onSidebarHide }) {
                 id={id}
                 name={name}
                 position={position}
-                transactionAmount={transactions}
+                transactionAmount={ages}
                 rise={rise}
-                tasksCompleted={tasksCompleted}
+                mode={mode}
                 imgId={imgId}
               />
             ),
@@ -184,20 +184,19 @@ function NameCard({
     position,
     transactionAmount,
     rise,
-    tasksCompleted,
+    mode,
     imgId,
   }) {
-    const { transactions, barPlayhead } = useSpring({
-      transactions: transactionAmount,
+    const { barPlayhead } = useSpring({
       barPlayhead: 1,
-      from: { transactions: 0, barPlayhead: 0 },
+      from: { ages: 0, barPlayhead: 0 },
     });
     return (
       <div className="w-full p-2 lg:w-1/3">
         <div className="rounded-lg bg-card flex justify-between p-3 h-32">
           <div className="">
             <div className="flex items-center">
-              <Image path={`mock_faces_${imgId}`} className="w-10 h-10" />
+              <Image path={`${imgId}`} className="w-10 h-10" />
               <div className="ml-2">
                 <div className="flex items-center">
                   <div className="mr-2 font-bold text-white">{name}</div>
@@ -207,7 +206,7 @@ function NameCard({
               </div>
             </div>
   
-            <div className="text-sm  mt-2">{`${tasksCompleted} from 5 tasks completed`}</div>
+            <div className="text-sm  mt-2">{`Mode: Turn ${mode ? "on" : "off"}`}</div>
             <svg
               className="w-44 mt-3"
               height="6"
@@ -218,16 +217,12 @@ function NameCard({
               <rect width="200" height="6" rx="3" fill="#2D2D2D" />
               <animated.rect
                 width={barPlayhead.to(
-                  (i) => i * (tasksCompleted / 5) * 200,
+                  (i) => i * (mode / 1) * 200,
                 )}
                 height="6"
                 rx="3"
                 fill="url(#paint0_linear)"
               />
-              <rect x="38" width="2" height="6" fill="#171717" />
-              <rect x="78" width="2" height="6" fill="#171717" />
-              <rect x="118" width="2" height="6" fill="#171717" />
-              <rect x="158" width="2" height="6" fill="#171717" />
               <defs>
                 <linearGradient id="paint0_linear" x1="0" y1="0" x2="1" y2="0">
                   <stop stopColor="#8E76EF" />
@@ -237,8 +232,8 @@ function NameCard({
             </svg>
           </div>
           <div className="flex flex-col items-center">
-            <Icon
-              path={rise ? 'res-react-dash-bull' : 'res-react-dash-bear'}
+            <Image
+              path={rise ? 'https://svgshare.com/i/gjD.svg' : 'https://svgshare.com/i/giK.svg'}
               className="w-8 h-8"
             />
             <animated.div
@@ -248,7 +243,7 @@ function NameCard({
                 'text-lg',
               )}
             >
-              {transactions.to((i) => `$${i.toFixed(2)}`)}
+              {`${ transactionAmount } years`}
             </animated.div>
             <div className="text-sm ">Last 6 month</div>
           </div>
@@ -342,7 +337,7 @@ function NameCard({
           <div className="flex items-center mt-3" key={id}>
             <div className="">{id}</div>
   
-            <Image path={`res-react-dash-flag-${id}`} className="ml-2 w-6 h-6" />
+            <Image path={`https://assets.codepen.io/3685267/res-react-dash-flag-${id}.jpg`} className="ml-2 w-6 h-6" />
             <div className="ml-2">{name}</div>
             <div className="flex-grow" />
             <div className="">{`$${value.toLocaleString()}`}</div>

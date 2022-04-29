@@ -1,7 +1,6 @@
 import clsx from "https://cdn.skypack.dev/clsx@1.1.1";
 import React, { useState } from 'react';
 import { useSpring, animated, config } from 'react-spring';
-import Icon from "./Icon";
 import IconButton from "./IconButton";
 import Image from "./Image";
 import "../styles/Sidebar.css";
@@ -55,15 +54,11 @@ function Sidebar({ onSidebarHide, showSidebar }) {
         <div className="flex-grow overflow-x-hidden overflow-y-auto flex flex-col">
         <div className="flex-shrink-0 overflow-hidden p-2">
           <div className="flex items-center h-full sm:justify-center xl:justify-start p-2">
-            <Image path="https://assets.codepen.io/3685267/mock_faces_8.jpg" className="w-10 h-10" />
+            <Image path="https://i.ibb.co/MZT0JH7/7.jpg" className="w-10 h-10" />
             <div className="block sm:hidden xl:block ml-2 font-bold ">
-              Jerry Wilson
+              Suong Dao
             </div>
             <div className="flex-grow block sm:hidden xl:block" />
-            <Icon
-              path="res-react-dash-options"
-              className="block sm:hidden xl:block w-3 h-3"
-            />
           </div>
         </div>
           {sidebarItems[0].map((i) => (
@@ -158,9 +153,11 @@ function Sidebar({ onSidebarHide, showSidebar }) {
         </div>
         <div className="w-full p-3 h-24 sm:h-20 xl:h-24 hidden sm:block flex-shrink-0 sidebar-separator-bottom">
           <div className='Login-button'>
+            <Link to="../">
               <button type="button">
-                  <Link to="../"> LOG OUT </Link>
+                   LOG OUT
               </button>
+            </Link>
           </div>
         </div>
       </div>

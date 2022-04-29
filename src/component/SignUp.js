@@ -47,9 +47,11 @@ const Signup = () => {
                                 <input type="text" className="form-control" placeholder="Password" />
                             </div>
                             <div className='Login-button'>
+                            <Link to="../dashboard">
                                 <button type="button">
-                                    <Link to="../dashboard"> SIGN UP </Link>
+                                    SIGN UP 
                                 </button>
+                            </Link>
                             </div>
                             <div className='Signup'>
                                 <div> Have an account <Link to="../">Log in now!</Link></div>

@@ -37,9 +37,11 @@ const Login = () => {
                                 <input type="text" className="form-control" placeholder="Password" />
                             </div>
                             <div className='Login-button'>
+                            <Link to="./dashboard">
                                 <button type="button">
-                                    <Link to="./dashboard"> LOGIN </Link>
+                                    LOGIN
                                 </button>
+                            </Link>
                             </div>
                             <div className="message">
                                 <div><Link to="#">Forgot your password</Link></div>

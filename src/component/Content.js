@@ -247,23 +247,28 @@ function NameCard({
     );
   }
   function Graph() {
-    const CustomTooltip = () => (
-      <div className="rounded-xl overflow-hidden tooltip-head">
-        <div className="flex items-center justify-between p-2">
-          <div className="">Revenue</div>
-          <Icon path="res-react-dash-options" className="w-2 h-2" />
-        </div>
-        <div className="tooltip-body text-center p-3">
-          <div className="text-white font-bold">$1300.50</div>
-          <div className="">Revenue from 230 sales</div>
-        </div>
-      </div>
-    );
+    const CustomTooltip = ({ active, payload, label }) => {
+      if (active && payload && payload.length) {
+        return (
+          <div className="rounded-xl overflow-hidden tooltip-head">
+            <div className="flex items-center justify-between p-2">
+              <div className="">Temporature</div>
+              <Icon path="res-react-dash-options" className="w-2 h-2" />
+            </div>
+            <div className="tooltip-body text-center p-3">
+              <div className="text-white font-bold">{`${ label }`}</div>
+              <div className="">Temporature in {`${payload[0].value.toFixed(2)}` } &deg;C</div>
+              <div className="">Temporature in {`${payload[0].value.toFixed(2) * 9 / 5 + 32}` } &deg;F</div>
+            </div>
+          </div>
+        );
+      }
+    };
     return (
       <div className="flex p-4 h-full flex-col">
         <div className="">
           <div className="flex items-center">
-            <div className="font-bold text-white">Temporature Summary (Celcius)</div>
+            <div className="font-bold text-white">Temporature Summary (&deg;C)</div>
             <div className="flex-grow" />
   
             <Icon path="res-react-dash-graph-range" className="w-4 h-4" />

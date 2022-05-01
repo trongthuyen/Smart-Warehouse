@@ -9,15 +9,15 @@ import '../styles/Login.css';
 
 const sidebarItems = [
     [
-      { id: '0', title: 'Dashboard', notifications: false },
-      { id: '1', title: 'Overview', notifications: false },
-      { id: '2', title: 'Chat', notifications: 6 },
-      { id: '3', title: 'Team', notifications: false },
+      { id: '0', title: 'Dashboard', notifications: false, link: '../dashboard' },
+      { id: '1', title: 'Detail', notifications: false, link: '../detail' },
+      { id: '2', title: 'Control', notifications: false, link: '../control' },
+      { id: '3', title: 'Team', notifications: false, link: '../' },
     ],
     [
-      { id: '4', title: 'Tasks', notifications: false },
-      { id: '5', title: 'Reports', notifications: false },
-      { id: '6', title: 'Settings', notifications: false },
+      { id: '4', title: 'Tasks', notifications: false, link: '../'  },
+      { id: '5', title: 'Reports', notifications: false, link: '../'  },
+      { id: '6', title: 'Settings', notifications: false, link: '../'  },
     ],
   ];
 
@@ -67,6 +67,7 @@ function Sidebar({ onSidebarHide, showSidebar }) {
               item={i}
               onClick={setSelected}
               selected={selected}
+              link={i.link}
             />
           ))}
           <div className="mt-8 mb-0 font-bold px-3 block sm:hidden xl:block">
@@ -78,6 +79,7 @@ function Sidebar({ onSidebarHide, showSidebar }) {
               item={i}
               onClick={setSelected}
               selected={selected}
+              link={i.link}
             />
           ))}
           <div className="flex-grow" />
@@ -94,7 +96,7 @@ function Sidebar({ onSidebarHide, showSidebar }) {
                   Admin updated 09:12 am November 08,2020
                 </div>
                 <animated.div className="text-right text-gray-400 text-xs">
-                  {precentage.interpolate((i) => `${Math.round(i)}%`)}
+                  {precentage.to((i) => `${Math.round(i)}%`)}
                 </animated.div>
                 <div className="w-full text-gray-300">
                   <svg
@@ -165,8 +167,9 @@ function Sidebar({ onSidebarHide, showSidebar }) {
 }
 export default Sidebar
 
-function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
+function MenuItem({ item: { id, title, notifications }, onClick, selected, link }) {
     return (
+      <Link to={link}>
       <div
         className={clsx(
           'w-full mt-6 flex items-center px-3 sm:px-0 xl:px-3 justify-start sm:justify-center xl:justify-start sm:mt-6 xl:mt-3 cursor-pointer',
@@ -174,8 +177,8 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
         )}
         onClick={() => onClick(id)}
       >
-        <SidebarIcons id={id} />
-        <div className="block sm:hidden xl:block ml-2">{title}</div>
+          <SidebarIcons id={id} />
+          <div className="block sm:hidden xl:block ml-2">{title}</div>
         <div className="block sm:hidden xl:block flex-grow" />
         {notifications && (
           <div className="flex sm:hidden xl:flex bg-pink-600  w-5 h-5 flex items-center justify-center rounded-full mr-2">
@@ -183,6 +186,7 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
           </div>
         )}
       </div>
+      </Link>
     );
 }
 

@@ -257,8 +257,8 @@ function NameCard({
             </div>
             <div className="tooltip-body text-center p-3">
               <div className="text-white font-bold">{`${ label }`}</div>
-              <div className="">Temporature in {`${payload[0].value.toFixed(2)}` } &deg;C</div>
-              <div className="">Temporature in {`${payload[0].value.toFixed(2) * 9 / 5 + 32}` } &deg;F</div>
+              <div className="">Temporature is {`${payload[0].value.toFixed(2)}` } &deg;C</div>
+              <div className="">Temporature is {`${payload[0].value.toFixed(2) * 9 / 5 + 32}` } &deg;F</div>
             </div>
           </div>
         );

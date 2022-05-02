@@ -1,5 +1,5 @@
 import Sidebar from './Sidebar';
-// import Content from './Content'
+import DetailContent from './DetailContent';
 import React, { useState } from 'react';
 
 const Detail = () => {
@@ -12,11 +12,11 @@ const Detail = () => {
         }}
         showSidebar={showSidebar}
       />
-      {/* <Content
+      <DetailContent
         onSidebarHide={() => {
           onSetShowSidebar(true);
         }}
-      /> */}
+      />
     </div>
   );
 }

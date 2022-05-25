@@ -83,7 +83,7 @@ const humidData = [
   'July',
 ].map((i) => {
   const humid = 10 + Math.random() * 90;
-  const expectedhumid = Math.max(humid + (Math.random() - 0.5) * 90, 0);
+  const expectedhumid = Math.max(humid + (Math.random() - 0.5) * 20, 0);
   return {
     name: i,
     humid,

@@ -1,10 +1,10 @@
 import './App.css';
 import React from "react";
-import Login from './component/Login';
-import Dashboard from './component/Dashboard';
-import Signup from './component/SignUp';
-import Detail from './component/Detail';
-import Control from './component/Control';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Signup from './components/SignUp';
+import Detail from './components/Detail';
+import Control from './components/Control';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default function App() {
